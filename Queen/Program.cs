@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -28,19 +29,23 @@ namespace Queen
         }
         static void Elhelyez()
         { 
-        
+            
         }
         static void FajlbaIr()
         { 
         
         }
-        static void Megjelenit()
-        { 
-        
-        }
-        static char Tabla(char a)
+        public void Megjelenit()
         {
-            return a;
+            for (int i = 0; i < 8; i++)
+            {
+
+                for (int j = 0; j < 8; j++)
+                {
+                    Console.Write(tomb[i, j] + " ");
+                }
+                Console.WriteLine("");
+            }
         }
         static int UresOszlop()
         {
@@ -57,7 +62,10 @@ namespace Queen
     {
         static void Main(string[] args)
         {
-
+            Tabla t = new Tabla('#');
+            Console.WriteLine("Üres tábla");
+            t.Megjelenit();
+            Console.ReadKey();
         }
     }
 }
