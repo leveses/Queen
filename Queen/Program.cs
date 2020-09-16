@@ -10,26 +10,33 @@ namespace Queen
 {
     class Tabla
     {
-        char[,] tomb;
+        char[,] T;
         private char UresCella;
         private int UresOszlopokSzama;
         private int UresSorokSzama;
 
         public Tabla(char ch)
         {
-            tomb = new char[8, 8];
+            T = new char[8, 8];
             UresCella = ch;
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    tomb[i,j] = UresCella;  
+                    T[i,j] = UresCella;  
                 }
             }
         }
-        static void Elhelyez()
-        { 
+        public void Elhelyez(int N)
+        {
+            Random vel = new Random();
+            int sor = vel.Next(0,8);
+            int oszlop = vel.Next(0, 8);
             
+            if (T[sor,oszlop] == '#')
+            {
+                T[sor, oszlop] = 'K';
+            }
         }
         static void FajlbaIr()
         { 
@@ -42,7 +49,7 @@ namespace Queen
 
                 for (int j = 0; j < 8; j++)
                 {
-                    Console.Write(tomb[i, j] + " ");
+                    Console.Write(T[i, j] + " ");
                 }
                 Console.WriteLine("");
             }
@@ -64,6 +71,9 @@ namespace Queen
         {
             Tabla t = new Tabla('#');
             Console.WriteLine("Üres tábla");
+            t.Megjelenit();
+            t.Elhelyez(1);
+            Console.WriteLine();
             t.Megjelenit();
             Console.ReadKey();
         }
