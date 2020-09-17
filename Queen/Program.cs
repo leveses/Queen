@@ -30,11 +30,17 @@ namespace Queen
         public void Elhelyez(int N)
         {
             Random vel = new Random();
-            int sor = vel.Next(0,8);
-            int oszlop = vel.Next(0, 8);
             
-            if (T[sor,oszlop] == '#')
+            for (int i = 0; i < N; i++)
             {
+                int sor = vel.Next(0, 8);
+                int oszlop = vel.Next(0, 8);
+
+               while (T[sor, oszlop] == 'K')
+                {
+                    sor = vel.Next(0, 8);
+                    oszlop = vel.Next(0, 8);
+                }
                 T[sor, oszlop] = 'K';
             }
         }
