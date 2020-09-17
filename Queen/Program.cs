@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -60,13 +61,13 @@ namespace Queen
                 Console.WriteLine("");
             }
         }
-        static int UresOszlop()
+        public bool UresOszlop(int oszlop)
         {
-            return 0;
+            //HF befejzni
         }
-        static int UresSor()
+        static bool UresSor(int sor)
         {
-            return 0;
+            return true;
         }
 
 
@@ -78,9 +79,11 @@ namespace Queen
             Tabla t = new Tabla('#');
             Console.WriteLine("Üres tábla");
             t.Megjelenit();
-            t.Elhelyez(1);
+            t.Elhelyez(8);
             Console.WriteLine();
             t.Megjelenit();
+            Console.WriteLine();
+            t.UresOszlop();
             Console.ReadKey();
         }
     }
